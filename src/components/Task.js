@@ -1,0 +1,14 @@
+import { FaTimes } from 'react-icons/fa'
+
+const Task = ({ task, onDelete, onToggle }) => {
+  return (
+    <div onDoubleClick={() => onToggle(task.id)} className={`task ${task.reminder ? 'reminder' : ''}`}>
+        <h3>{task.text}<FaTimes style={{color: 'red', cursor: 'pointer'}} onClick={() => onDelete(task.id)} /></h3>
+        <p>{task.day}</p>
+    </div>
+  )
+}
+
+export default Task
+
+// onClick runs the onDelete function, which is the deleteTask function(on App.js), with a task.id as deleteTask's id parameter
